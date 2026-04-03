@@ -1,26 +1,162 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap');
+@import './variables.css';
+@import './base.css';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Global Component Overrides against the provided specs */
+body {
+  background-color: var(--color-bg);
+  background-image: radial-gradient(rgba(13, 31, 60, 0.05) 2px, transparent 2px),
+                    radial-gradient(rgba(13, 31, 60, 0.05) 2px, transparent 2px);
+  background-position: 0 0, 24px 24px;
+  background-size: 48px 48px;
+  animation: move-dots 60s linear infinite;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@keyframes move-dots {
+  0% { background-position: 0 0, 24px 24px; }
+  100% { background-position: 480px 480px, 504px 504px; }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Allow the animated body background to show through the white-space sections */
+.pain-points-section, .social-proof-section, .pricing-section {
+  background-color: transparent !important;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--color-coral);
+  color: var(--color-navy);
+  border: none;
+  border-radius: 2px;
+  padding: 0.85rem 2rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  background-color: #ff7254;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+  padding: 0.85rem 2rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: 0.2s all ease;
+}
+
+.btn-outline:hover {
+  border-color: var(--color-coral);
+  color: var(--color-coral);
+  background-color: transparent;
+}
+
+/* Global Form Inputs */
+input[type="text"], input[type="tel"], select, .form-group input, .form-group select {
+  background-color: var(--color-navy);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  padding: 0.75rem 1rem;
+  border-radius: 2px;
+  font-size: 16px;
+  font-family: var(--font-body);
+  transition: border-color 0.2s ease;
+}
+
+input[type="text"]:focus, input[type="tel"]:focus, select:focus, .form-group input:focus, .form-group select:focus {
+  outline: none;
+  border-color: var(--color-coral);
+  box-shadow: none;
+}
+
+/* Global Cards */
+.pain-card {
+  background-color: #0a0a0a !important;
+  padding: 2rem 1.5rem !important;
+  border-radius: 2px !important;
+  border-bottom: 2px solid transparent !important;
+  transition: border-bottom-color 0.2s ease, transform 0.2s ease !important;
+}
+
+.pain-card:hover {
+  border-bottom-color: var(--color-coral) !important;
+}
+
+.solution-card {
+  background-color: #1a1a1a !important;
+  border: 1px solid rgba(255, 83, 51, 0.15) !important;
+  border-top: 2px solid var(--color-coral) !important;
+  padding: 2rem !important;
+  border-radius: 2px !important;
+}
+
+.shop-card {
+  background-color: #0a0a0a !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 1.25rem !important;
+  border-radius: 2px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 10px !important;
+}
+
+/* Animations */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-up-anim 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fade-up-anim {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.hero .urgency-pill {
+  animation: fade-up-anim 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero .hero-title {
+  animation: fade-up-anim 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero .hero-subtitle {
+  animation: fade-up-anim 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.25s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero .hero-buttons {
+  animation: fade-up-anim 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
+  transform: translateY(20px);
 }

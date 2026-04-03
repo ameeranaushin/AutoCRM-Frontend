@@ -1,0 +1,67 @@
+/* Pain Points Section */
+.pain-points-section {
+  background-color: var(--color-bg);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Base Grid (Mobile: 1 column) */
+.pain-points-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* Tablet+: 2 columns */
+@media (min-width: 768px) {
+  .pain-points-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 4 columns */
+@media (min-width: 1024px) {
+  .pain-points-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Card Design */
+.pain-card {
+  background-color: var(--color-navy);
+  color: var(--color-bg);
+  padding: 2rem 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* 2px transition for the bottom border on hover */
+  border-bottom: 2px solid transparent;
+  transition: border-bottom-color 0.2s ease, transform 0.2s ease;
+}
+
+.pain-card:hover {
+  border-bottom-color: var(--color-coral);
+  transform: translateY(-2px);
+}
+
+.pain-card-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.pain-card-title {
+  color: var(--color-bg);
+  margin: 0;
+  /* Keeps the card title bold via the var(--font-body) 600 weight set globally */
+}
+
+.pain-card-desc {
+  color: var(--color-muted);
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.5;
+}

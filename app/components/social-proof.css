@@ -1,0 +1,162 @@
+/* Social Proof Section */
+.social-proof-section {
+  background-color: var(--color-bg);
+  color: var(--color-body);
+}
+
+/* Header Layout */
+.sp-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.sp-title-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sp-title {
+  margin-bottom: 0;
+  text-align: left;
+  color: var(--color-navy);
+}
+
+.sp-subtitle {
+  color: var(--color-muted);
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Live Badge */
+.sp-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(0, 201, 167, 0.1); /* Mint at 10% opacity */
+  border: 1px solid rgba(0, 201, 167, 0.2);
+  color: var(--color-navy);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--fs-label);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.blink-green {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-mint);
+  border-radius: 50%;
+  animation: blink-green 1.4s infinite;
+}
+
+@keyframes blink-green {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+/* Desktop Header Layout */
+@media (min-width: 768px) {
+  .sp-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+/* Grid Layout */
+.sp-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile: 1 col */
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .sp-grid {
+    grid-template-columns: repeat(2, 1fr); /* Tablet: 2 col */
+  }
+}
+
+@media (min-width: 1024px) {
+  .sp-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Desktop: 3-4 col auto-fit */
+  }
+}
+
+/* Shop Card Design */
+.shop-card {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(13, 31, 60, 0.1);
+  padding: 1.25rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.shop-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+}
+
+.shop-avatar {
+  background-color: var(--color-coral);
+  color: #FFFFFF;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.shop-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.25rem;
+}
+
+.shop-name {
+  color: #fff;
+  font-size: var(--fs-body);
+  margin: 0;
+  /* var(--font-body) 600 weight applied to h3 globally */
+}
+
+.shop-city {
+  color: #ccc;
+  font-size: 13px;
+}
+
+/* Status Badges */
+.shop-status {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.status-live {
+  background-color: rgba(0, 201, 167, 0.15);
+  color: #008f76; /* Darker variant of mint for text readability */
+}
+
+.status-pending {
+  background-color: rgba(255, 180, 0, 0.15);
+  color: #b37e00; /* Darker variant of amber for text readability */
+}

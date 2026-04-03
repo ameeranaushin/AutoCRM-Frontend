@@ -1,0 +1,83 @@
+/* Solution Section */
+.solution-section {
+  background-color: var(--color-navy); /* High contrast against the dark gray cards */
+  color: var(--color-bg);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--color-coral);
+}
+
+/* Base Grid (Mobile: 1 column) */
+.solution-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 768px) {
+  .solution-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 4 columns */
+@media (min-width: 1024px) {
+  .solution-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Solution Card Design */
+.solution-card {
+  background-color: #1a1a1a;
+  border-top: 2px solid var(--color-coral);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 1.5rem;
+  z-index: 1;
+}
+
+/* Background Number: Large Bebas Neue in coral at 12% opacity */
+.solution-card-bg-number {
+  position: absolute;
+  top: -20px;
+  right: -10px;
+  font-family: var(--font-display);
+  font-size: 140px;
+  line-height: 1;
+  color: rgba(255, 87, 51, 0.12); /* Coral at 12% opacity */
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.solution-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.solution-card-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.solution-card-title {
+  color: var(--color-bg);
+  margin: 0;
+  /* Uses the .var(--font-body) 600 weight globally */
+}
+
+.solution-card-desc {
+  color: var(--color-muted);
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.5;
+}

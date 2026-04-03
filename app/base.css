@@ -1,0 +1,88 @@
+/* Reset and Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  /* Prevent horizontal scroll */
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--color-body);
+  background-color: var(--color-bg);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Base */
+h1 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  line-height: 0.9;
+  color: var(--color-coral);
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  line-height: 1;
+  color: var(--color-coral);
+}
+
+h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--fs-h3);
+}
+
+label, .caption, .label-text {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--fs-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.text-muted {
+  color: var(--color-muted);
+}
+
+/* Buttons and Touch Targets */
+button, .btn {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--fs-button);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  min-height: 44px; /* Minimum touch target height mandated by spec */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section {
+  padding: var(--section-padding-y) var(--section-padding-x);
+}
+
+/* Responsive Grid Base */
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}

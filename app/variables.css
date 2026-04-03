@@ -1,0 +1,41 @@
+:root {
+  /* Colors */
+  --color-navy: #0D1F3C;
+  --color-coral: #FF5733;
+  --color-mint: #00C9A7;
+  --color-amber: #FFB400;
+  --color-bg: #FFF8F5;
+  --color-body: #1A1A2E;
+  --color-muted: #6B7280;
+
+  /* Typography */
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  /* Layout Constraints */
+  --max-width: 1200px;
+  
+  /* Mobile-first variables (xs: 0px+) */
+  --fs-h1: clamp(48px, 10vw, 96px);
+  --fs-h2: clamp(32px, 7vw, 56px);
+  --fs-h3: 18px;
+  --fs-body: 15px;
+  --fs-label: 11px;
+  --fs-button: 13px;
+
+  --section-padding-y: 4rem;
+  --section-padding-x: 1.25rem;
+}
+
+/* lg: 1024px+ */
+@media (min-width: 1024px) {
+  :root {
+    --fs-h3: 20px;
+    --fs-body: 16px;
+    --fs-label: 12px;
+    --fs-button: 14px;
+
+    --section-padding-y: 6rem;
+    --section-padding-x: 2.5rem;
+  }
+}
