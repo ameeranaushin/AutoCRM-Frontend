@@ -21,11 +21,11 @@ export default function Pricing() {
           
           <div className="pricing-left">
             <div className="pricing-header">
-              <div className="price-amount">4,000</div>
+              <div className="price-amount">Rs. 4,000</div>
               <div className="price-period">/per month</div>
             </div>
             
-            <Link href="#demo" className="btn btn-primary btn-pricing-cta">
+            <Link href="#booking" className="btn btn-primary btn-pricing-cta">
               Book a Free Demo Call 
             </Link>
           </div>

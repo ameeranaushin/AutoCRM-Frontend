@@ -21,50 +21,44 @@ export default function BookingForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const name = formData.name.trim();
+    const shop = formData.shopName.trim();
+    const phone = formData.phone.trim();
+    const city = formData.city.trim();
+    const need = formData.need;
+
+    if (!name || !shop || !phone) {
+      alert('Please fill in your name, shop name, and WhatsApp number.');
+      return;
+    }
+
     setIsSubmitting(true);
 
+    const payload = { name, shop, phone, city, need, timestamp: new Date().toISOString() };
+
     try {
-      // 1. Submit to Webhook / API (Replace with actual endpoint)
-      const webhookUrl = 'https://hook.us1.make.com/dummy-webhook-url';
-      
-      // We will perform a no-cors fetch so it doesn't block the UI if it fails
-      await fetch(webhookUrl, {
+      await fetch('https://script.google.com/macros/s/AKfycbwyo2ZFHVcIdBqslriCkeYcI-xpHjbITTg5NsJnyr3BbJqGtVkLn_zbxrMxJ-Z4CxRo/exec', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-        mode: 'no-cors'
-      }).catch(err => console.warn("Webhook fetch failed (expected if dummy)", err));
-
-      // 2. Show Success Modal
-      setShowSuccessModal(true);
-
-      // 3. WhatsApp Fallback Action
-      // Replace with your actual business WhatsApp number (with country code)
-      const businessWhatsApp = '919999999999'; 
-      const text = `Hi DetailPro! I'd like to book a demo.
-Name: ${formData.name}
-Shop: ${formData.shopName}
-City: ${formData.city}
-Interested in: ${formData.need}`;
-      
-      const waUrl = `https://wa.me/${businessWhatsApp}?text=${encodeURIComponent(text)}`;
-      
-      // Open WhatsApp in a new tab after a brief delay
-      setTimeout(() => {
-        window.open(waUrl, '_blank');
-      }, 500);
-
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
     } catch (error) {
-      console.error("Form submission error:", error);
-    } finally {
-      setIsSubmitting(false);
+      console.log('Sheet log failed silently', error);
     }
+
+    const msg = encodeURIComponent(
+      `Hi! I just filled the DetailPro demo form.\nName: ${name}\nShop: ${shop}\nPhone: ${phone}\nCity: ${city}\nNeeds: ${need}`
+    );
+    window.open(`https://wa.me/917439596653?text=${msg}`, '_blank');
+
+    setShowSuccessModal(true);
+    setIsSubmitting(false);
   };
 
   return (
-    <section className="booking-section" id="demo">
+    <section className="booking-section" id="booking">
       <div className="container">
         <div className="booking-form-wrapper">
           <h2 className="section-title booking-title">

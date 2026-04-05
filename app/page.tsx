@@ -1,6 +1,8 @@
 import Nav from './components/Nav';
 import Hero from './components/Hero';
+import DemoSection from './components/DemoSection';
 import PainPoints from './components/PainPoints';
+import Reviews from './components/Reviews';
 import Solution from './components/Solution';
 import SocialProof from './components/SocialProof';
 import Pricing from './components/Pricing';
@@ -11,7 +13,9 @@ export default function Home() {
     <main>
       <Nav />
       <Hero />
+      <DemoSection />
       <PainPoints />
+      <Reviews />
       <Solution />
       <SocialProof />
       <Pricing />

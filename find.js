@@ -1,0 +1,1 @@
+const fs=require('fs');const p=require('path');function walk(d){let m=[];fs.readdirSync(d,{withFileTypes:true}).forEach(f=>{const fp=p.join(d,f.name);if(f.isDirectory()){if(f.name!=='node_modules')m.push(...walk(fp));}else if(fp.match(/\.(tsx|html|css|ts|js)$/)&&fs.readFileSync(fp,'utf8').includes('\u20b9'))m.push(fp);});return m;};console.log([...walk('app'),...walk('public')]);

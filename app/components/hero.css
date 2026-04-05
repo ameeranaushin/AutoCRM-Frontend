@@ -174,3 +174,122 @@
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); } /* Scrolls precisely half since content is duplicated */
 }
+.demo-btn-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.demo-hover-card {
+  position: absolute;
+  bottom: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  width: 300px;
+  background: #111827;
+  border: 1px solid rgba(255,83,51,0.35);
+  border-radius: 6px;
+  padding: 1.1rem 1.25rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  z-index: 50;
+}
+
+.demo-btn-wrapper:hover .demo-hover-card {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.demo-hover-card::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(255,83,51,0.35);
+}
+
+.dhc-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.dhc-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #FF5733;
+  text-transform: uppercase;
+}
+
+.dhc-live {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  color: #00C9A7;
+  font-weight: 500;
+}
+
+.dhc-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00C9A7;
+  animation: blink 1.4s infinite;
+}
+
+.dhc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 0.75rem;
+}
+
+.dhc-icon {
+  font-size: 18px;
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+.dhc-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #f5f2ee;
+  margin: 0 0 2px 0;
+}
+
+.dhc-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: #6B7280;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.dhc-footer {
+  margin-top: 0.75rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: #FFB400;
+  font-style: italic;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .demo-hover-card {
+    display: none;
+  }
+}

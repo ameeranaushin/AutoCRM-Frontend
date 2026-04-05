@@ -1,0 +1,153 @@
+/* Reviews Section */
+.reviews-section {
+  background-color: #0D1F3C;
+  padding: 4rem 0;
+  overflow: hidden;
+}
+
+.reviews-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reviews-label {
+  color: #FF5733;
+  font-variant: small-caps;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.reviews-title {
+  color: #FF5733;
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.reviews-sub {
+  color: var(--color-muted);
+  font-size: var(--fs-body);
+  margin: 0;
+}
+
+/* Auto-scrolling Carousel */
+.reviews-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+@keyframes scroll-reviews {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.reviews-track {
+  display: flex;
+  gap: 1.25rem;
+  animation: scroll-reviews 30s linear infinite;
+  width: max-content;
+  padding-left: 1rem;
+}
+
+.reviews-track:hover {
+  animation-play-state: paused;
+}
+
+/* Card Design */
+.review-card {
+  background-color: #1a1a1a;
+  border: 1px solid rgba(255, 83, 51, 0.12);
+  border-top: 2px solid #FF5733;
+  border-radius: 2px;
+  padding: 1.75rem;
+  width: 85vw;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .review-card {
+    width: 340px;
+  }
+}
+
+.stars {
+  color: #FFB400;
+  font-size: 14px;
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+}
+
+.review-text {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 15px;
+  color: #aaa;
+  line-height: 1.65;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.review-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  margin: 1rem 0;
+}
+
+/* Bottom row */
+.reviewer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: rgba(255, 83, 51, 0.15);
+  color: #FF5733;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  border: 1px solid rgba(255, 83, 51, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.reviewer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  width: 100%;
+}
+
+.shop-name {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  /* right-aligned verified tick means space-between? The text says: name + handle right-aligned verified tick */
+  justify-content: space-between;
+}
+
+.verified-tick {
+  /* user says right-aligned verified tick, it could mean the tick is all the way to the right, or it's just next to it. Since the image might just want it aligned on the right of the name */
+  flex-shrink: 0;
+}
+
+.handle {
+  color: #777;
+  font-size: 13px;
+}
